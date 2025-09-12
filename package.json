@@ -1,0 +1,80 @@
+{
+  "name": "interview-management-system",
+  "version": "1.0.0",
+  "description": "نظام إدارة المقابلات - مدرب القيادة - نظام شامل لإدارة مقابلات العمل لمدربي القيادة مع واجهة عربية متطورة",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx live-server --port=8000 --open=/index.html",
+    "build": "echo 'No build process needed for static site'",
+    "serve": "python -m http.server 8000",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "interview",
+    "management",
+    "leadership",
+    "training",
+    "arabic",
+    "hr",
+    "recruitment",
+    "assessment",
+    "evaluation",
+    "مقابلات",
+    "قيادة",
+    "تدريب",
+    "موارد بشرية"
+  ],
+  "author": {
+    "name": "نظام إدارة المقابلات",
+    "email": "info@interview-system.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/interview-management-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/interview-management-system/issues"
+  },
+  "homepage": "https://github.com/your-username/interview-management-system#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "script-functions.js",
+    "script-interviews.js",
+    "script-analytics.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "directories": {
+    "lib": ".",
+    "doc": ".",
+    "example": "."
+  },
+  "config": {
+    "port": 8000,
+    "host": "localhost"
+  },
+  "preferGlobal": false,
+  "private": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}

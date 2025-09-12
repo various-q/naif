@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المقابلات - مدرب القيادة</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b-4 border-blue-500">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <div class="bg-blue-500 p-3 rounded-full">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">نظام إدارة المقابلات</h1>
+                        <p class="text-gray-600">وظيفة: مدرب القيادة</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 flex-wrap">
+                    <button onclick="showCandidateForm()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base">
+                        + مرشح جديد
+                    </button>
+                    <button onclick="showCandidatesList()" class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base">
+                        📋 قائمة المرشحين
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 md:px-6 py-8">
+        <!-- Main Navigation -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="showQuestionsBank()" class="nav-btn bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base">
+                    📚 بنك الأسئلة
+                </button>
+                <button onclick="showInterviewMode()" class="nav-btn bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base">
+                    🎤 وضع المقابلة
+                </button>
+                <button onclick="showAnalytics()" class="nav-btn bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base">
+                    📊 التحليلات
+                </button>
+            </div>
+        </div>
+
+        <!-- Content Sections -->
+        <div id="questionsSection" class="content-section">
+            <!-- Questions Bank Content -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex flex-col lg:flex-row gap-4 items-center">
+                    <div class="flex-1 relative w-full">
+                        <input type="text" id="searchInput" placeholder="ابحث في الأسئلة..." 
+                               class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <svg class="absolute right-4 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <button onclick="generateRandomQuestions()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold transition-colors text-sm md:text-base whitespace-nowrap">
+                        🎲 اختيار عشوائي
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">تصنيفات الأسئلة</h3>
+                <div class="flex flex-wrap gap-3" id="categoryFilters">
+                    <button class="category-btn active px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="all">
+                        جميع الأسئلة
+                    </button>
+                    <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="personal-info">
+                        المعلومات الشخصية
+                    </button>
+                    <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="experience">
+                        الخبرة والمهارات
+                    </button>
+                    <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="leadership">
+                        القيادة والإدارة
+                    </button>
+                    <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="training">
+                        التدريب والتطوير
+                    </button>
+                    <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="scenarios">
+                        المواقف والسيناريوهات
+                    </button>
+                    <button class="category-btn px-4 py-2 rounded-full border border-gray-300 hover:bg-blue-50 transition-colors text-sm" data-category="thinking">
+                        طريقة التفكير
+                    </button>
+                </div>
+            </div>
+
+            <!-- Selected Questions Counter -->
+            <div id="selectedCounter" class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 hidden">
+                <div class="flex items-center justify-between">
+                    <span class="text-blue-800 font-medium">الأسئلة المختارة: <span id="selectedCount">0</span></span>
+                    <button onclick="clearSelectedQuestions()" class="text-blue-600 hover:text-blue-800 text-sm underline">
+                        مسح الاختيار
+                    </button>
+                </div>
+            </div>
+
+            <!-- Questions Container -->
+            <div id="questionsContainer" class="space-y-4"></div>
+        </div>
+
+        <!-- Interview Mode Section -->
+        <div id="interviewSection" class="content-section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">وضع المقابلة</h2>
+                
+                <!-- Candidate Selection -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">اختر المرشح:</label>
+                    <select id="candidateSelect" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="">اختر مرشحاً للمقابلة</option>
+                    </select>
+                </div>
+
+                <!-- Interview Status -->
+                <div id="interviewStatus" class="mb-6 hidden">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse ml-3"></div>
+                            <span class="text-green-800 font-medium">المقابلة جارية مع: <span id="currentCandidateName"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interview Questions -->
+                <div id="interviewQuestions" class="space-y-6"></div>
+
+                <!-- Interview Controls -->
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <button onclick="startInterview()" id="startBtn" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                        بدء المقابلة
+                    </button>
+                    <button onclick="saveInterview()" id="saveBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors hidden">
+                        حفظ المقابلة
+                    </button>
+                    <button onclick="generateReport()" id="reportBtn" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors hidden">
+                        تقرير التقييم
+                    </button>
+                    <button onclick="resetInterview()" id="resetBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors hidden">
+                        إعادة تعيين
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div id="analyticsSection" class="content-section hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Candidates Summary -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">ملخص المرشحين</h3>
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <div id="candidatesSummary"></div>
+                </div>
+
+                <!-- Performance Analytics -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">تحليل الأداء</h3>
+                        <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <div id="performanceAnalytics"></div>
+                </div>
+            </div>
+
+            <!-- Advanced Statistics -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-blue-100 text-sm">متوسط مدة المقابلة</p>
+                            <p class="text-2xl font-bold" id="avgInterviewDuration">-- دقيقة</p>
+                        </div>
+                        <svg class="w-8 h-8 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-green-100 text-sm">معدل القبول</p>
+                            <p class="text-2xl font-bold" id="acceptanceRate">--%</p>
+                        </div>
+                        <svg class="w-8 h-8 text-green-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl shadow-lg p-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-orange-100 text-sm">أفضل أداء هذا الشهر</p>
+                            <p class="text-2xl font-bold" id="topPerformerScore">-- / 5</p>
+                        </div>
+                        <svg class="w-8 h-8 text-orange-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Interviews -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mt-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-800">المقابلات الأخيرة</h3>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                        </svg>
+                        <span class="text-sm text-gray-500">آخر التحديثات</span>
+                    </div>
+                </div>
+                <div id="recentInterviews"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Candidate Form Modal -->
+    <div id="candidateModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-6 md:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-800">إضافة مرشح جديد</h2>
+                <button onclick="closeCandidateForm()" class="text-gray-500 hover:text-gray-700 p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="candidateForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">الاسم الكامل *</label>
+                        <input type="text" name="fullName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">رقم الهاتف *</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">البريد الإلكتروني *</label>
+                    <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">المدينة *</label>
+                        <input type="text" name="city" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">الحي</label>
+                        <input type="text" name="district" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">سنوات الخبرة</label>
+                        <select name="experience" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">اختر سنوات الخبرة</option>
+                            <option value="0-2">أقل من سنتين</option>
+                            <option value="2-5">2-5 سنوات</option>
+                            <option value="5-10">5-10 سنوات</option>
+                            <option value="10+">أكثر من 10 سنوات</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">المؤهل العلمي</label>
+                        <select name="education" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">اختر المؤهل</option>
+                            <option value="diploma">دبلوم</option>
+                            <option value="bachelor">بكالوريوس</option>
+                            <option value="master">ماجستير</option>
+                            <option value="phd">دكتوراه</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">ملاحظات إضافية</label>
+                    <textarea name="notes" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                </div>
+
+                <div class="flex flex-wrap gap-4">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                        حفظ المرشح
+                    </button>
+                    <button type="button" onclick="closeCandidateForm()" class="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                        إلغاء
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Candidates List Modal -->
+    <div id="candidatesListModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl p-6 md:p-8 max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-800">قائمة المرشحين</h2>
+                <button onclick="closeCandidatesList()" class="text-gray-500 hover:text-gray-700 p-1">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="candidatesListContent"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="script-functions.js"></script>
+    <script src="script-interviews.js"></script>
+    <script src="script-analytics.js"></script>
+</body>
+</html>

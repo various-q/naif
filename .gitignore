@@ -1,0 +1,808 @@
+# نظام إدارة المقابلات - مدرب القيادة
+# ملف .gitignore
+
+# ملفات النظام
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ملفات المحررات
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ملفات Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# ملفات البيئة
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات البناء
+dist/
+build/
+*.min.js
+*.min.css
+
+# ملفات السجلات
+logs/
+*.log
+
+# ملفات مؤقتة
+tmp/
+temp/
+.tmp/
+
+# ملفات النسخ الاحتياطي
+*.bak
+*.backup
+*.old
+
+# ملفات الاختبار
+coverage/
+.nyc_output/
+test-results/
+
+# ملفات Git
+.git/
+.gitignore
+
+# ملفات IDE
+*.sublime-project
+*.sublime-workspace
+.vscode/settings.json
+.vscode/launch.json
+
+# ملفات Windows
+desktop.ini
+$RECYCLE.BIN/
+
+# ملفات Linux
+*~
+
+# ملفات macOS
+.AppleDouble
+.LSOverride
+
+# ملفات Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ملفات JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ملفات Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ملفات Vim
+*.swp
+*.swo
+
+# ملفات Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ملفات Atom
+.atom/
+
+# ملفات Eclipse
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# ملفات NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ملفات IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ملفات WebStorm
+.idea/
+
+# ملفات PhpStorm
+.idea/
+
+# ملفات PyCharm
+.idea/
+
+# ملفات RubyMine
+.idea/
+
+# ملفات AppCode
+.idea/
+
+# ملفات CLion
+.idea/
+
+# ملفات DataGrip
+.idea/
+
+# ملفات GoLand
+.idea/
+
+# ملفات Rider
+.idea/
+
+# ملفات Android Studio
+.idea/
+.gradle/
+local.properties
+*.iml
+*.hprof
+
+# ملفات Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
+# ملفات Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# ملفات Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ملفات Vim
+*.swp
+*.swo
+*~
+
+# ملفات Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ملفات Atom
+.atom/
+
+# ملفات Brackets
+.brackets.json
+
+# ملفات Code::Blocks
+*.depend
+*.layout
+
+# ملفات Dev-C++
+*.dev
+
+# ملفات Visual Studio
+*.vcxproj.user
+*.vcxproj.filters
+*.vcxproj
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ملفات CodeLite
+*.workspace
+*.project
+
+# ملفات Qt Creator
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qmlc
+*.jsc
+Makefile*
+*build-*
+*.qm
+*.prl
+
+# ملفات CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# ملفات Make
+Makefile
+*.make
+
+# ملفات Autotools
+Makefile.in
+aclocal.m4
+autom4te.cache/
+autoscan.log
+config.h
+config.h.in
+config.log
+config.status
+configure
+configure.scan
+.deps/
+.dirstamp
+.libs/
+*.la
+*.lo
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# ملفات Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ملفات Java
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+
+# ملفات C/C++
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# ملفات C#
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# ملفات Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# ملفات Rust
+target/
+Cargo.lock
+
+# ملفات PHP
+vendor/
+composer.lock
+.env
+
+# ملفات Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# ملفات JavaScript/Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ملفات TypeScript
+*.tsbuildinfo
+
+# ملفات Bower
+bower_components/
+
+# ملفات Yarn
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ملفات Webpack
+.webpack/
+
+# ملفات Parcel
+.parcel-cache/
+
+# ملفات Rollup
+.rollup.cache/
+
+# ملفات Vite
+dist-ssr/
+*.local
+
+# ملفات Next.js
+.next/
+out/
+
+# ملفات Nuxt.js
+.nuxt/
+dist/
+
+# ملفات Gatsby
+.cache/
+public/
+
+# ملفات Angular
+.angular/
+
+# ملفات React
+build/
+
+# ملفات Vue.js
+dist/
+
+# ملفات Svelte
+.svelte-kit/
+
+# ملفات Meteor
+.meteor/
+
+# ملفات Electron
+dist_electron/
+
+# ملفات Cordova
+platforms/
+plugins/
+www/
+
+# ملفات Ionic
+www/
+
+# ملفات React Native
+android/app/build/
+ios/build/
+
+# ملفات Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# ملفات Dart
+pubspec.lock
+
+# ملفات Swift
+*.swiftmodule
+*.swiftdoc
+*.dSYM.zip
+*.dSYM
+
+# ملفات Objective-C
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ملفات Kotlin
+*.kotlin_module
+
+# ملفات Scala
+*.class
+*.log
+
+# ملفات Clojure
+pom.xml
+pom.xml.asc
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ملفات Haskell
+dist/
+dist-*
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+*.dyn_o
+*.dyn_hi
+.hpc
+.hsenv
+.cabal-sandbox/
+cabal.sandbox.config
+*.cabal
+.stack-work/
+
+# ملفات Elixir
+/_build/
+/cover/
+/deps/
+/doc/
+/.fetch
+erl_crash.dump
+*.ez
+
+# ملفات Erlang
+*.beam
+*.plt
+*.plt
+
+# ملفات OCaml
+*.cmo
+*.cmi
+*.cma
+*.cmxa
+*.a
+*.o
+*.so
+*.native
+*.byte
+*.log
+
+# ملفات F#
+*.fsproj.user
+*.fsproj.DotSettings.user
+
+# ملفات R
+.Rhistory
+.RData
+.Ruserdata
+
+# ملفات MATLAB
+*.asv
+
+# ملفات Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+
+# ملفات Racket
+compiled/
+doc/
+.racket/
+
+# ملفات Scheme
+*.o
+*.so
+*.a
+
+# ملفات Lisp
+*.fasl
+*.fas
+*.lib
+*.x86f
+*.x86-64f
+*.lisp-temp
+
+# ملفات Prolog
+*.pl
+
+# ملفات Perl
+*.o
+*.so
+*.a
+
+# ملفات Lua
+*.luac
+
+# ملفات Tcl
+*.tcl
+
+# ملفات Shell
+*.sh
+
+# ملفات Batch
+*.bat
+*.cmd
+
+# ملفات PowerShell
+*.ps1
+
+# ملفات VBScript
+*.vbs
+
+# ملفات JScript
+*.js
+
+# ملفات VBScript
+*.vbs
+
+# ملفات WSH
+*.wsh
+
+# ملفات HTA
+*.hta
+
+# ملفات CHM
+*.chm
+
+# ملفات Help
+*.hlp
+
+# ملفات INF
+*.inf
+
+# ملفات SYS
+*.sys
+
+# ملفات DRV
+*.drv
+
+# ملفات DLL
+*.dll
+
+# ملفات EXE
+*.exe
+
+# ملفات MSI
+*.msi
+
+# ملفات CAB
+*.cab
+
+# ملفات ZIP
+*.zip
+
+# ملفات RAR
+*.rar
+
+# ملفات 7Z
+*.7z
+
+# ملفات TAR
+*.tar
+
+# ملفات GZ
+*.gz
+
+# ملفات BZ2
+*.bz2
+
+# ملفات XZ
+*.xz
+
+# ملفات LZMA
+*.lzma
+
+# ملفات Z
+*.Z
+
+# ملفات ARJ
+*.arj
+
+# ملفات LHA
+*.lha
+
+# ملفات LZH
+*.lzh
+
+# ملفات ACE
+*.ace
+
+# ملفات UUE
+*.uue
+
+# ملفات MIME
+*.mime
+
+# ملفات UU
+*.uu
+
+# ملفات XX
+*.xx
+
+# ملفات YY
+*.yy
+
+# ملفات ZZ
+*.zz
+
+# ملفات AA
+*.aa
+
+# ملفات BB
+*.bb
+
+# ملفات CC
+*.cc
+
+# ملفات DD
+*.dd
+
+# ملفات EE
+*.ee
+
+# ملفات FF
+*.ff
+
+# ملفات GG
+*.gg
+
+# ملفات HH
+*.hh
+
+# ملفات II
+*.ii
+
+# ملفات JJ
+*.jj
+
+# ملفات KK
+*.kk
+
+# ملفات LL
+*.ll
+
+# ملفات MM
+*.mm
+
+# ملفات NN
+*.nn
+
+# ملفات OO
+*.oo
+
+# ملفات PP
+*.pp
+
+# ملفات QQ
+*.qq
+
+# ملفات RR
+*.rr
+
+# ملفات SS
+*.ss
+
+# ملفات TT
+*.tt
+
+# ملفات UU
+*.uu
+
+# ملفات VV
+*.vv
+
+# ملفات WW
+*.ww
+
+# ملفات XX
+*.xx
+
+# ملفات YY
+*.yy
+
+# ملفات ZZ
+*.zz
+
+# ملفات أخرى
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+.#*
+#*#
+.*.swp
+.*.swo
+*~
